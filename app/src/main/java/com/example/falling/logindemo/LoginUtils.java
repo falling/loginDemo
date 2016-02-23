@@ -7,7 +7,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by falling on 2016/2/23.
@@ -28,10 +27,14 @@ public class LoginUtils {
      *
      * @param mEmail 用户名
      */
-    public void insert(String mEmail) {
+    public void insert(String mEmail ,String mPassword) {
         ContentValues contentValues = new ContentValues();
         contentValues.put(LoginSQLiteOpenHelper.USERNAME, mEmail);
+        contentValues.put(LoginSQLiteOpenHelper.PASSWORD, mPassword);
         mSqLiteDatabase.insert(LoginSQLiteOpenHelper.USER_TABLE_NAME, null, contentValues);
+
+        contentValues = new ContentValues();
+        contentValues.put(LoginSQLiteOpenHelper.USERNAME, mEmail);
         contentValues.put(LoginSQLiteOpenHelper.ID, 1);
         contentValues.put(LoginSQLiteOpenHelper.LOGIN_STATE, true);
         mSqLiteDatabase.insert(LoginSQLiteOpenHelper.LAST_LOGIN_TABLE_NAME, null, contentValues);
