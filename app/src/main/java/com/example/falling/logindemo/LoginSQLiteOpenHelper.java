@@ -13,6 +13,7 @@ public class LoginSQLiteOpenHelper extends SQLiteOpenHelper {
     public static final String LOGIN = "login.db";
     public static final String USER_TABLE_NAME = "table_users";
     public static final String USERNAME = "username";
+    public static final String PASSWORD = "password";
     public static final String LAST_LOGIN_TABLE_NAME = "table_last_Login";
     public static final String ID = "_id";
     public static final String LOGIN_STATE = "state";
@@ -23,7 +24,7 @@ public class LoginSQLiteOpenHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table " + USER_TABLE_NAME + "(" + USERNAME + " varchar(20) not null primary key ON CONFLICT REPLACE)");
+        db.execSQL("create table " + USER_TABLE_NAME + "(" + USERNAME + " varchar(20) not null primary key ON CONFLICT REPLACE," + PASSWORD + ")");
         db.execSQL("create table " + LAST_LOGIN_TABLE_NAME + "(" + ID + " varchar(20) not null primary key ON CONFLICT REPLACE,"+ USERNAME+ "," + LOGIN_STATE + ")");
     }
 
