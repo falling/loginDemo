@@ -219,7 +219,7 @@ public class LoginActivity extends AppCompatActivity {
             }
 
             //login
-            mLoginUtils.insert(mEmail);
+            mLoginUtils.insert(mEmail,mPassword);
 
             return true;
         }
