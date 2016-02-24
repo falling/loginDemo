@@ -86,6 +86,7 @@ public class LoginUtils {
         if (cursor.moveToFirst()) {
             result = cursor.getString(0);
         }
+        cursor.close();
         return result;
     }
 
